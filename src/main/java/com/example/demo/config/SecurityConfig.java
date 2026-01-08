@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Indispensable para Login
                 .authorizeHttpRequests(auth -> auth
                         // 1. AQUÍ ESTABA EL ERROR. Solo ponemos la ruta relativa (sin http://localhost...)
-                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
                         // Permitimos opciones globales (para React)
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
